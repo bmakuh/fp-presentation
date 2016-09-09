@@ -1,0 +1,11 @@
+import { ListOfThings } from './list-of-things'
+
+const component = shallow(<ListOfThings />)
+
+describe('<ListOfThings />', () =? {
+  it('renders', () => {
+    component.setState({ things: ['thing 1', 'thing 2'] })
+
+    expect(component).to.have.exactly(2).descendants('li')
+  })
+})

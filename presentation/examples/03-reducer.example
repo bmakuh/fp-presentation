@@ -1,0 +1,8 @@
+function thingReducer (state = [], action) {
+  switch (action.type) {
+    case 'THINGS_LOAD_SUCCESS':
+      return action.data
+    default:
+      return state
+  }
+}

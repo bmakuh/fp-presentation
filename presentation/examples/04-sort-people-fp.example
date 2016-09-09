@@ -1,0 +1,22 @@
+import { adjust, evolve, filter, join, map, pick, pipe, prop, sortBy } from 'ramda'
+
+// type alias Person = { name: String }
+
+// firstnameToName :: { first_name } -> Person
+const firstnameToName = (p) => p.first_name ? { name: p.first_name } : p
+
+// capitalize :: String -> String
+const capitalize = pipe(adjust(toUpper, 0), join(''))
+
+// name :: Person -> String
+const name = prop('name')
+
+// capitalizeName :: Person -> Person
+const capitalizeName = evolve({ name: capitalize })
+
+// Array -> [Person]
+const alphabetizeAllThePeople = pipe(
+  map(firstnameToName), filter(name), map(capitalizeName), sortBy(name)
+)
+
+alphabetizeAllThePeople(people)

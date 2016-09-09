@@ -1,0 +1,6 @@
+const action = {
+  type: 'THING_LOAD_SUCCESS',
+  data: ['thing 1', 'thing 2', 'thing 3']
+}
+
+expect(thingReducer(undefined, action)).to.equal(action.data)

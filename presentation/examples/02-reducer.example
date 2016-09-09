@@ -1,0 +1,13 @@
+const initialState = []
+
+function thingReducer (state = initialState, action) {
+  switch (action.type) {
+    case 'THINGS_LOAD_SUCCESS':
+      state = action.data
+      break
+    default:
+      state = []
+  }
+
+  return state
+}

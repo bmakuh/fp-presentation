@@ -1,0 +1,13 @@
+import { logException } from 'app/lib/raven'
+import vFetch from '@welltok/vfetch'
+
+// actions
+const loadThings = () => (dispatch) =>
+  vFetch('/v1/things', { service: 'cafewell' })
+  .then((res) => {
+    dispatch({
+      type: 'THINGS_LOAD_SUCCESS',
+      data: res.data
+    })
+  })
+  .catch(logException)

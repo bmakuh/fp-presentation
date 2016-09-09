@@ -1,0 +1,24 @@
+// utils
+import { logException } from 'app/lib/raven'
+import React, { Component } from 'react'
+import vFetch from '@welltok/vfetch'
+
+export class ListOfThings extends Component {
+  componentDidMount () {
+    vFetch('/v1/things', { service: 'cafewell' })
+    .then((res) => {
+      this.setState({ things: res.data })
+    })
+    .catch(logException)
+  }
+
+  render () {
+    return (
+      <ul>
+        {this.state.things.map((thing) =>
+          <li>{thing}</li>
+        )}
+      </ul>
+    )
+  }
+}

@@ -1,0 +1,12 @@
+it('renders a given list of things', () => {
+  const component = shallow(<ListOfThings things={things} />)
+
+  expect(component).to.exist.and.to.have.exactly(3).descendants('li')
+})
+
+it('fetches a list of things when it mounts', () => {
+  const spy = sinon.spy()
+  const component = mount(<ListOfThings things={things} loadThings={spy} />)
+
+  expect(spy).to.have.been.calledOnce
+})

@@ -1,0 +1,23 @@
+// mutating arrays
+let things = ['thing 1', 'thing 2', 'thing 3']
+let justOneThing
+
+things.forEach((thing) => {
+  if (thing === 'thing 1') justOneThing.push(thing)
+})
+
+// mutating strings
+let userRoleString = 'Hello, I am a coach'
+
+if (user.role === 'participant') {
+  userRoleString = userRoleString.replace('coach', 'participant')
+}
+
+// impure functions
+let query = ''
+
+function getSearchVal (searchVal) {
+  searchVal = document.querySelector('.search').value
+}
+
+getSearchVal(query)

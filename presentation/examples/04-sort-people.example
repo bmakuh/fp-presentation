@@ -1,0 +1,27 @@
+const people = [
+  { name: 'Bob' },
+  { name: 'sue' },
+  { first_name: 'Joey' },
+  { age: 42 }
+]
+
+function alphabetizeAllThePeople (people) {
+  people.forEach((person) => {
+    if (person.first_name && !person.name) {
+      person = { name: person.first_name }
+    }
+  })
+
+  people = people.filter((person) => Boolean(person.name))
+
+  people.sort((a, b) => {
+    let nameA = a.name.toUpperCase()
+    let nameB = b.name.toUpperCase()
+    if (nameA < nameB) return -1
+    if (nameA > nameB) return 1
+
+    return 0
+  })
+}
+
+alphabetizeAllThePeople(people)

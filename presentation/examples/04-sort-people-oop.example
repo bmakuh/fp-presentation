@@ -1,0 +1,31 @@
+class People {
+  constructor (people) {
+    this._people = people
+  }
+
+  alphabetizeAllThePeople () {
+    this._sanitize()
+    this._people.sort((a, b) => {
+      let nameA = a.name.toUpperCase()
+      let nameB = b.name.toUpperCase()
+      if (nameA < nameB) return -1
+      if (nameA > nameB) return 1
+      return 0
+    })
+
+    return this._people
+  }
+
+  _sanitize () {
+    this._people.forEach((person) => {
+      if (person.first_name && !person.name) {
+        person = { name: person.first_name }
+      }
+    })
+
+    this._people = this._people.filter((person) => Boolean(person.name))
+  }
+}
+
+const myPeople = new People(people)
+myPeople.alphabetizeAllThePeople()

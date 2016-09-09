@@ -1,0 +1,10 @@
+// treating arrays as immutable
+const things = ['thing 1', 'thing 2', 'thing 3']
+
+const justOneThing = things.map((thing) => thing === 'thing 1' && thing)
+
+// treating strings as immutable
+const getUserRoleString = (role) => `Hello, I am a ${role}`
+
+// pure functions
+const getSearchVal = (el = document.querySelector('.search')) => el ? el.value : ''

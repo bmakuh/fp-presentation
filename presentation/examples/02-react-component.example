@@ -1,0 +1,27 @@
+// utils
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
+
+// actions and action creators
+import { loadThings } from 'app/actions/load-things'
+
+export class ListOfThings extends Component {
+  componentDidMount () {
+    loadThings()
+  }
+
+  render () {
+    return (
+      <ul>
+        {this.props.things.map((thing) =>
+          <li>{thing}</li>
+        )}
+      </ul>
+    )
+  }
+}
+
+const mapStateToProps = ({ things }) => ({ things })
+const mapDispatchToProps = { loadThings }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListOfThings)
